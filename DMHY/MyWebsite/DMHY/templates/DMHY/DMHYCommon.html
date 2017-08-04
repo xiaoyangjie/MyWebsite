@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DMHY</title>
+</head>
+<body>
+    <div class="header">
+        {% block title %}
+        <a href="{%url 'home' %}"><h2>返回主页</h2></a>
+        {% endblock %}
+        <form action="{%url 'DMHYKeywords' 1 %}" method="get">
+        <input id="keyword" type="text" name="keyword"  value={{keyword}}>
+        <input type="submit" class="formButton" value=" 搜尋 " />&nbsp;<a href="javascript:void(0)" onclick="showHideAdvSearch()">高級&nbsp;<span id="searchMode">▼</span></a>
+        </form>
+    </div>
+    <div class="main">
+        <div class="table">
+            <div class="navTitle">
+                {% block navTitle %}
+                显示最近10条
+                {% endblock %}
+            </div>
+            <div class="content">
+                <table >
+                    <thead>
+                        <tr>
+                            <th>publishTimeStr</th>
+                            <th>classification</th>
+                            <th>title</th>
+                            <th>contentSize</th>
+                            <th>publisher</th>
+{#                            <th>image</th>#}
+                            <th>torrent</th>
+                            <th>manget</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in content %}
+                        <tr>
+                            <td class="publishTime">{{ i.publishTimeStr }}</td>
+                            <td class="classification">{{ i.classification}}</td>
+                            <td class="title"> {{ i.title}}</td>
+                            <td class="contentSize">{{ i.contentSize}}</td>
+                            <td class="publisher">{{ i.publisher}}</td>
+{#                            <td class="image"><img src="{{ i.image}}"></td>#}
+                            <td class="torrent"><a href="{{ i.torrent}}">torrent</a></td>
+                            <td class="manget"><a href="{{ i.manget}}">manget</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="tail">
+        {% block tail %}
+        <a href="{% url 'DMHYTotal' 1 %}">参看全部链接</a>
+        {% endblock %}
+    </div>
+</body>
+</html>

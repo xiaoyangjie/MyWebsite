@@ -1,0 +1,14 @@
+{% extends 'DMHY/DMHYCommon.html' %}
+
+{% block title %}
+    <a href="{%url 'home' %}"><h2>返回主页</h2></a>
+    <a href="{%url 'DMHY' %}"><h2>返回DMHY</h2></a>
+{% endblock %}
+
+{% block navTitle %}每次显示10条{% endblock %}
+
+{% block tail %}
+<span><a href="{% url 'DMHYTotal' pageNum.pop %}">上一页</a></span>
+        <span>第{{ pageNum.pop }}页</span>
+<span><a href="{% url 'DMHYTotal' pageNum.pop %}">下一页</a></span>
+{% endblock %}

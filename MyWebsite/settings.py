@@ -27,7 +27,7 @@ SECRET_KEY = 'y84((pn2+vn!sny8w2fwo%2l5_##orc*-^rd!y!jfjd7bdfqur'
 DEBUG = True
 
 # ALLOWED_HOSTS = ['192.168.1.148','127.0.0.1', '222.197.180.158']
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['121.49.99.14','127.0.0.1']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     ################################
     'home',
     'DMHY',
+    'weixin',
 ]
 
 MIDDLEWARE = [

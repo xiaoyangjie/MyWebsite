@@ -18,7 +18,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from home import views as homeViews
 from DMHY import views as DMHYViews
-
+from weixin.views import WeixinInterface
+import weixin
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
@@ -26,5 +27,6 @@ urlpatterns = [
     url(r'^DMHY/$', DMHYViews.DMHY, name='DMHY'),
     url(r'^DMHYTotal/(\d+)/$', DMHYViews.DMHYTotal, name='DMHYTotal'),
     url(r'^DMHYKeywords/(\d+)/$', DMHYViews.DMHYKeywords, name='DMHYKeywords'),
+    url(r'^weixin/$', WeixinInterface.as_view(), name='WeinxinInterface'),
     # url(r'^weixin/$', weixin.views.test1, name='WeinxinInterface'),
 ]
